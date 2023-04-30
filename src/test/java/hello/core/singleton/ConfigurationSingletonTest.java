@@ -25,6 +25,14 @@ public class ConfigurationSingletonTest {
         MemberRepository memberRepository = ac.getBean("memberRepository", MemberRepository.class);
     }
 
+    @Test
+    void configurationDeep(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfigTest.class);
+        AppConfigTest bean = ac.getBean(AppConfigTest.class);
+        Assertions.assertThat(bean.getClass()).isNotSameAs(AppConfigTest.class);
+        System.out.println(bean.getClass());
+    }
+
     @Configuration
     static class AppConfigTest {
         @Bean
