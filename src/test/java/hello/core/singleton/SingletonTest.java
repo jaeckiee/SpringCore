@@ -32,6 +32,6 @@ public class SingletonTest {
         MemberService memberService1 = ac.getBean("memberService", MemberService.class);
         MemberService memberService2 = ac.getBean("memberService", MemberService.class);
         Assertions.assertThat(memberService1).isSameAs(memberService2);
-        
+
     }
 }
